@@ -1,0 +1,30 @@
+{
+  "name": "Goal",
+  "type": "object",
+  "properties": {
+    "trader_name": {
+      "type": "string"
+    },
+    "daily_pnl_goal": {
+      "type": "number"
+    },
+    "daily_trade_limit": {
+      "type": "number"
+    },
+    "daily_loss_limit": {
+      "type": "number"
+    },
+    "weekly_pnl_goal": {
+      "type": "number"
+    },
+    "weekly_trade_limit": {
+      "type": "number"
+    },
+    "monthly_pnl_goal": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "trader_name"
+  ]
+}

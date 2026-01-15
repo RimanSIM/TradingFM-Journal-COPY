@@ -1,0 +1,29 @@
+{
+  "name": "Certificate",
+  "type": "object",
+  "properties": {
+    "trader_name": {
+      "type": "string"
+    },
+    "firm_name": {
+      "type": "string"
+    },
+    "account_size": {
+      "type": "string"
+    },
+    "date_issued": {
+      "type": "string",
+      "format": "date"
+    },
+    "file_url": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trader_name",
+    "firm_name"
+  ]
+}

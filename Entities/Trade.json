@@ -1,0 +1,208 @@
+{
+  "name": "Trade",
+  "type": "object",
+  "properties": {
+    "trader_name": {
+      "type": "string",
+      "enum": [
+        "Haidar",
+        "MMX",
+        "Riman",
+        "Abdin",
+        "Reitrac",
+        "Cartier"
+      ],
+      "description": "Name of the trader who took this trade"
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Trading instrument"
+    },
+    "account_type": {
+      "type": "string",
+      "enum": [
+        "Demo",
+        "Evaluation",
+        "Funded",
+        "Live"
+      ]
+    },
+    "position_type": {
+      "type": "string",
+      "enum": [
+        "Buy",
+        "Sell"
+      ]
+    },
+    "session": {
+      "type": "string",
+      "enum": [
+        "Asia",
+        "London",
+        "New York",
+        "No Session"
+      ]
+    },
+    "lot_size": {
+      "type": "number"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "Win",
+        "Loss",
+        "Breakeven"
+      ]
+    },
+    "stop_loss": {
+      "type": "number"
+    },
+    "take_profit": {
+      "type": "number"
+    },
+    "pnl": {
+      "type": "number",
+      "description": "Profit/Loss in dollars"
+    },
+    "exit_pips": {
+      "type": "number",
+      "description": "Exit in pips"
+    },
+    "entry_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "exit_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "setup": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Setup types selected"
+    },
+    "setup_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "structure": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trend": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confirmation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confirmation_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "wicks_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "orderblock_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "candle_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bos_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ifvg_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extension_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "eq_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fvg_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bpr_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "csd_timeframe": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trade_duration": {
+      "type": "string"
+    },
+    "rrr": {
+      "type": "string"
+    },
+    "quality_score": {
+      "type": "number"
+    },
+    "setup_screenshot": {
+      "type": "string"
+    },
+    "confirmation_screenshot": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trader_name",
+    "symbol",
+    "account_type",
+    "position_type",
+    "session",
+    "result"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

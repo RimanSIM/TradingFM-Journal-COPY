@@ -1,0 +1,40 @@
+{
+  "name": "Payout",
+  "type": "object",
+  "properties": {
+    "trader_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "firm_name": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "account_type": {
+      "type": "string",
+      "enum": [
+        "Demo",
+        "Evaluation",
+        "Funded",
+        "Live"
+      ]
+    },
+    "screenshot_url": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "trader_name",
+    "date",
+    "firm_name",
+    "amount"
+  ]
+}
