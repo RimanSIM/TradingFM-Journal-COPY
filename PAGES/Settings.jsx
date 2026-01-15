@@ -176,14 +176,14 @@ export default function Settings() {
       </div>
 
       {/* Profile Picture */}
-      <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 p-6">
+      <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 p-6 hover:border-gray-700/70 transition-all">
         <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
           <User className="w-5 h-5 text-cyan-400" />
           Profile Picture
         </h2>
         <div className="flex items-center gap-6">
           <div className="relative">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center overflow-hidden">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-600 flex items-center justify-center overflow-hidden shadow-lg shadow-cyan-500/30 ring-2 ring-cyan-500/20">
               {profilePicture ? (
                 <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" />
               ) : (
@@ -192,7 +192,7 @@ export default function Settings() {
                 </span>
               )}
             </div>
-            <label className="absolute bottom-0 right-0 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-cyan-600 transition-colors">
+            <label className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center cursor-pointer hover:from-cyan-600 hover:to-cyan-700 transition-all shadow-md shadow-cyan-500/30">
               <Camera className="w-4 h-4 text-white" />
               <input 
                 type="file" 
@@ -210,14 +210,14 @@ export default function Settings() {
                   <Input
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
-                    className="bg-gray-800 border-gray-700 h-9"
+                    className="bg-gray-800 border-gray-700 h-9 focus:border-cyan-500 focus:ring-cyan-500/20"
                     placeholder="Your name"
                   />
                   <Button
                     size="sm"
                     onClick={handleNameUpdate}
                     disabled={loading}
-                    className="bg-cyan-500 hover:bg-cyan-600"
+                    className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 shadow-md shadow-cyan-500/30"
                   >
                     Save
                   </Button>
@@ -228,25 +228,26 @@ export default function Settings() {
                       setEditingName(false);
                       setNewName(user.full_name || '');
                     }}
+                    className="hover:bg-gray-800"
                   >
                     Cancel
                   </Button>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-lg font-semibold text-white">{user.full_name}</h3>
+                  <h3 className="text-xl font-bold text-white">{user.full_name}</h3>
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => setEditingName(true)}
-                    className="text-cyan-400 hover:text-cyan-300"
+                    className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10"
                   >
                     Edit
                   </Button>
                 </>
               )}
             </div>
-            <p className="text-gray-400 text-sm">{user.email}</p>
+            <p className="text-gray-400 text-sm mt-1">{user.email}</p>
             <p className="text-xs text-gray-500 mt-1">Role: {user.role || 'User'}</p>
           </div>
         </div>
@@ -255,14 +256,14 @@ export default function Settings() {
       {/* Strategy & AI Score */}
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Strategy */}
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 p-6">
+        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 p-6 hover:border-gray-700/70 transition-all">
           <h2 className="text-lg font-semibold text-white mb-4">Your Strategy</h2>
           {strategy ? (
             <div className="text-center py-4">
-              <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+              <div className="w-20 h-20 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg shadow-cyan-500/30">
                 {strategy.charAt(0)}
               </div>
-              <p className="text-xl font-bold text-white">{strategy}</p>
+              <p className="text-2xl font-bold text-white">{strategy}</p>
               <p className="text-sm text-gray-400 mt-1">Trading Strategy</p>
             </div>
           ) : (
@@ -271,7 +272,7 @@ export default function Settings() {
         </div>
 
         {/* AI Rate Score */}
-        <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-2xl border border-purple-500/30 p-6">
+        <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-2xl border border-purple-500/40 p-6 hover:border-purple-500/50 transition-all shadow-lg shadow-purple-500/10">
           <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-purple-400" />
             AI Rate Score
@@ -299,7 +300,7 @@ export default function Settings() {
                     strokeDasharray={`${2 * Math.PI * 56}`}
                     strokeDashoffset={`${2 * Math.PI * 56 * (1 - aiScore / 100)}`}
                     strokeLinecap="round"
-                    className="transition-all duration-1000"
+                    className="transition-all duration-1000 drop-shadow-lg"
                   />
                   <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -310,10 +311,10 @@ export default function Settings() {
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                       {aiScore}
                     </div>
-                    <div className="text-xs text-gray-400">Score</div>
+                    <div className="text-xs text-gray-400 font-semibold">Score</div>
                   </div>
                 </div>
               </div>
