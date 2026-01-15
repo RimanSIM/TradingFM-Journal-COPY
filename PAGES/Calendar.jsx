@@ -305,14 +305,14 @@ export default function Calendar() {
                           'bg-gray-800/30 border border-gray-700/30'}
                       `}
                     >
-                      <div className="text-xs text-gray-500">{format(day, 'd')}</div>
+                      <div className="text-sm font-semibold text-gray-400">{format(day, 'd')}</div>
                       {hasTrades && (
                         <>
-                          <div className={`text-sm font-bold mt-1 ${dayPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                          <div className={`text-lg font-bold mt-1 ${dayPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                             {dayPnL >= 0 ? '+' : ''}${Math.abs(dayPnL).toFixed(0)}
                           </div>
                           {winRate !== null && (
-                            <div className="text-[10px] text-gray-500 mt-0.5">
+                            <div className="text-xs text-gray-400 mt-0.5">
                               {winRate.toFixed(0)}% WR
                             </div>
                           )}
@@ -329,11 +329,11 @@ export default function Calendar() {
                     weekPnL < 0 ? 'bg-red-500/10 border border-red-500/30' :
                     'bg-gray-800/30 border border-gray-700/30'}
                 `}>
-                  <div className="text-xs text-gray-400 mb-1">Week {week.weekNum}</div>
-                  <div className={`text-lg font-bold ${weekPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  <div className="text-sm text-gray-400 mb-1">Week {week.weekNum}</div>
+                  <div className={`text-xl font-bold ${weekPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                     {weekPnL >= 0 ? '+' : ''}${weekPnL.toFixed(0)}
                   </div>
-                  <div className="text-[10px] text-gray-500">{weekTrades} trades</div>
+                  <div className="text-xs text-gray-400">{weekTrades} trades</div>
                 </div>
               </div>
             );
