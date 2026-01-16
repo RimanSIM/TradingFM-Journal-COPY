@@ -16,7 +16,8 @@ import {
   ResponsiveContainer,
   PieChart,
   Pie,
-  Cell
+  Cell,
+  Tooltip
 } from 'recharts';
 import StatsCard from '../components/dashboard/StatsCard';
 import TradeTable from '../components/dashboard/TradeTable';
