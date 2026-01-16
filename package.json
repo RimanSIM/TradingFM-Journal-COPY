@@ -4,7 +4,10 @@
   "description": "",
   "main": "Layout.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -18,9 +21,17 @@
     "url": "https://github.com/RimanSIM/TradingFM-Journal-COPY/issues"
   },
   "homepage": "https://github.com/RimanSIM/TradingFM-Journal-COPY#readme",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "react-scripts": "^0.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "resolutions": {
+    "source-map-loader": "ignore"
   }
 }
