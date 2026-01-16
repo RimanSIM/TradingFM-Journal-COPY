@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/RimanSIM/TradingFM-Journal-COPY/static/css/main.c1f2ea41.css",
-    "main.js": "/RimanSIM/TradingFM-Journal-COPY/static/js/main.8d568b9e.js",
+    "main.js": "/RimanSIM/TradingFM-Journal-COPY/static/js/main.90de7201.js",
     "index.html": "/RimanSIM/TradingFM-Journal-COPY/index.html",
     "main.c1f2ea41.css.map": "/RimanSIM/TradingFM-Journal-COPY/static/css/main.c1f2ea41.css.map",
-    "main.8d568b9e.js.map": "/RimanSIM/TradingFM-Journal-COPY/static/js/main.8d568b9e.js.map"
+    "main.90de7201.js.map": "/RimanSIM/TradingFM-Journal-COPY/static/js/main.90de7201.js.map"
   },
   "entrypoints": [
     "static/css/main.c1f2ea41.css",
-    "static/js/main.8d568b9e.js"
+    "static/js/main.90de7201.js"
   ]
 }
