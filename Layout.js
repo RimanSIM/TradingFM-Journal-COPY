@@ -72,8 +72,8 @@ export default function Layout({ children, currentPageName }) {
           --background: #0A0E1A;
           --surface: #111827;
           --surface-light: #1F2937;
-          --accent: #00D9FF;
-          --accent-dim: rgba(0, 217, 255, 0.1);
+          --accent: #06B6D4;
+          --accent-dim: rgba(6, 182, 212, 0.1);
           --success: #10B981;
           --danger: #EF4444;
           --warning: #F59E0B;
@@ -87,32 +87,33 @@ export default function Layout({ children, currentPageName }) {
         }
         
         *::-webkit-scrollbar {
-          width: 6px;
-          height: 6px;
+          width: 8px;
+          height: 8px;
         }
         
         *::-webkit-scrollbar-track {
           background: #111827;
+          border-radius: 4px;
         }
         
         *::-webkit-scrollbar-thumb {
-          background: #374151;
-          border-radius: 3px;
+          background: linear-gradient(180deg, #06B6D4, #0891B2);
+          border-radius: 4px;
         }
         
         *::-webkit-scrollbar-thumb:hover {
-          background: #4B5563;
+          background: linear-gradient(180deg, #0891B2, #0E7490);
         }
       `}</style>
 
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-[#111827]/95 backdrop-blur-xl border-b border-gray-800/50">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900/98 to-gray-800/98 backdrop-blur-xl border-b border-gray-800/50 shadow-lg">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-600 flex items-center justify-center shadow-md shadow-cyan-500/30">
               <span className="text-white font-bold text-sm">TF</span>
             </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-lg font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
               TradingFM
             </span>
           </div>
@@ -120,7 +121,7 @@ export default function Layout({ children, currentPageName }) {
             variant="ghost"
             size="icon"
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all"
           >
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
@@ -135,11 +136,11 @@ export default function Layout({ children, currentPageName }) {
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         {/* Logo */}
-        <div className="hidden lg:flex items-center gap-3 px-6 py-5 border-b border-gray-800/50">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+        <div className="hidden lg:flex items-center gap-3 px-6 py-5 border-b border-gray-800/50 bg-gradient-to-r from-gray-900/50 to-gray-800/30">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
             <span className="text-white font-bold text-lg">TF</span>
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
             TradingFM
           </span>
         </div>
@@ -154,25 +155,25 @@ export default function Layout({ children, currentPageName }) {
                 to={createPageUrl(item.page)}
                 onClick={() => setSidebarOpen(false)}
                 className={`
-                  flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200
+                  flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group
                   ${isActive 
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-400 border border-cyan-500/30' 
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-300 border border-cyan-500/40 shadow-lg shadow-cyan-500/10' 
+                    : 'text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-700/30 hover:border hover:border-gray-700/50'
                   }
                 `}
               >
-                <item.icon className={`w-5 h-5 ${isActive ? 'text-cyan-400' : ''}`} />
-                <span className="font-medium text-sm">{item.name}</span>
+                <item.icon className={`w-5 h-5 transition-all ${isActive ? 'text-cyan-400' : 'group-hover:text-cyan-400'}`} />
+                <span className={`font-medium text-sm ${isActive ? 'font-semibold' : ''}`}>{item.name}</span>
               </Link>
             );
           })}
         </nav>
 
         {/* User Section */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800/50 bg-[#111827]">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800/50 bg-gradient-to-t from-gray-900 to-gray-900/50 backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-600 flex items-center justify-center overflow-hidden shadow-lg shadow-cyan-500/20 ring-2 ring-cyan-500/20">
                 {user?.profile_picture ? (
                   <img src={user.profile_picture} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
@@ -180,17 +181,17 @@ export default function Layout({ children, currentPageName }) {
                 )}
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-medium text-white truncate max-w-[120px]">
+                <span className="text-sm font-semibold text-white truncate max-w-[120px]">
                   {user?.full_name || 'Trader'}
                 </span>
-                <span className="text-xs text-gray-500">{user?.email?.split('@')[0] || 'Welcome'}</span>
+                <span className="text-xs text-gray-400">{user?.email?.split('@')[0] || 'Welcome'}</span>
               </div>
             </div>
             <Button
               variant="ghost"
               size="icon"
               onClick={handleLogout}
-              className="text-gray-500 hover:text-red-400 hover:bg-red-500/10"
+              className="text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-all"
             >
               <LogOut className="w-4 h-4" />
             </Button>

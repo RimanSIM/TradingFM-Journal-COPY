@@ -170,8 +170,8 @@ export default function Calendar() {
       <div className="flex flex-col gap-4">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/20">
-              <CalendarDays className="w-6 h-6 text-cyan-400" />
+            <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-600/30 border border-cyan-500/30 shadow-lg shadow-cyan-500/20">
+              <CalendarDays className="w-6 h-6 text-cyan-300" />
             </div>
             <div>
               <h1 className="text-2xl lg:text-3xl font-bold text-white">P&L Calendar</h1>
@@ -185,18 +185,18 @@ export default function Calendar() {
               variant="ghost"
               size="icon"
               onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-              className="text-gray-400 hover:text-white"
+              className="text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all"
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
-            <span className="text-xl font-bold text-white min-w-[180px] text-center">
+            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent min-w-[180px] text-center">
               {format(currentMonth, 'MMMM yyyy')}
             </span>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-              className="text-gray-400 hover:text-white"
+              className="text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all"
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
@@ -213,37 +213,37 @@ export default function Calendar() {
 
       {/* Monthly Summary */}
       <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4">
-          <div className="text-sm text-gray-400 mb-1">Monthly P&L</div>
-          <div className={`text-xl font-bold ${monthlyPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4 hover:border-gray-700/70 transition-all">
+          <div className="text-sm font-semibold text-gray-400 mb-1 uppercase tracking-wide">Monthly P&L</div>
+          <div className={`text-2xl font-bold ${monthlyPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
             {monthlyPnL >= 0 ? '+' : ''}${monthlyPnL.toFixed(2)}
           </div>
         </div>
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4">
-          <div className="text-sm text-gray-400 mb-1">Win Rate</div>
-          <div className="text-xl font-bold text-white">{monthlyWinRate.toFixed(1)}%</div>
+        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4 hover:border-gray-700/70 transition-all">
+          <div className="text-sm font-semibold text-gray-400 mb-1 uppercase tracking-wide">Win Rate</div>
+          <div className="text-2xl font-bold text-white">{monthlyWinRate.toFixed(1)}%</div>
         </div>
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4">
-          <div className="text-sm text-gray-400 mb-1">Green Days</div>
-          <div className="text-xl font-bold text-emerald-400">{greenDays}</div>
+        <div className="bg-gradient-to-br from-emerald-900/30 to-emerald-950/20 rounded-xl border border-emerald-500/40 p-4 hover:border-emerald-500/50 transition-all">
+          <div className="text-sm font-semibold text-emerald-400 mb-1 uppercase tracking-wide">Green Days</div>
+          <div className="text-2xl font-bold text-emerald-400">{greenDays}</div>
         </div>
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4">
-          <div className="text-sm text-gray-400 mb-1">Red Days</div>
-          <div className="text-xl font-bold text-red-400">{redDays}</div>
+        <div className="bg-gradient-to-br from-red-900/30 to-red-950/20 rounded-xl border border-red-500/40 p-4 hover:border-red-500/50 transition-all">
+          <div className="text-sm font-semibold text-red-400 mb-1 uppercase tracking-wide">Red Days</div>
+          <div className="text-2xl font-bold text-red-400">{redDays}</div>
         </div>
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4">
-          <div className="text-sm text-gray-400 mb-1">Best Day</div>
-          <div className="text-xl font-bold text-emerald-400">
+        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4 hover:border-gray-700/70 transition-all">
+          <div className="text-sm font-semibold text-gray-400 mb-1 uppercase tracking-wide">Best Day</div>
+          <div className="text-2xl font-bold text-emerald-400">
             {bestDay ? `+$${bestDay.pnl.toFixed(0)}` : 'N/A'}
           </div>
-          {bestDay && <div className="text-xs text-gray-500">{format(bestDay.date, 'MMM d')}</div>}
+          {bestDay && <div className="text-xs text-gray-500 font-semibold">{format(bestDay.date, 'MMM d')}</div>}
         </div>
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4">
-          <div className="text-sm text-gray-400 mb-1">Worst Day</div>
-          <div className="text-xl font-bold text-red-400">
+        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700/50 p-4 hover:border-gray-700/70 transition-all">
+          <div className="text-sm font-semibold text-gray-400 mb-1 uppercase tracking-wide">Worst Day</div>
+          <div className="text-2xl font-bold text-red-400">
             {worstDay ? `$${worstDay.pnl.toFixed(0)}` : 'N/A'}
           </div>
-          {worstDay && <div className="text-xs text-gray-500">{format(worstDay.date, 'MMM d')}</div>}
+          {worstDay && <div className="text-xs text-gray-500 font-semibold">{format(worstDay.date, 'MMM d')}</div>}
         </div>
       </div>
 
@@ -305,14 +305,14 @@ export default function Calendar() {
                           'bg-gray-800/30 border border-gray-700/30'}
                       `}
                     >
-                      <div className="text-xs text-gray-500">{format(day, 'd')}</div>
+                      <div className="text-sm font-semibold text-gray-400">{format(day, 'd')}</div>
                       {hasTrades && (
                         <>
-                          <div className={`text-sm font-bold mt-1 ${dayPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                          <div className={`text-lg font-bold mt-1 ${dayPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                             {dayPnL >= 0 ? '+' : ''}${Math.abs(dayPnL).toFixed(0)}
                           </div>
                           {winRate !== null && (
-                            <div className="text-[10px] text-gray-500 mt-0.5">
+                            <div className="text-xs text-gray-400 mt-0.5">
                               {winRate.toFixed(0)}% WR
                             </div>
                           )}
@@ -329,11 +329,11 @@ export default function Calendar() {
                     weekPnL < 0 ? 'bg-red-500/10 border border-red-500/30' :
                     'bg-gray-800/30 border border-gray-700/30'}
                 `}>
-                  <div className="text-xs text-gray-400 mb-1">Week {week.weekNum}</div>
-                  <div className={`text-lg font-bold ${weekPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                  <div className="text-sm text-gray-400 mb-1">Week {week.weekNum}</div>
+                  <div className={`text-xl font-bold ${weekPnL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                     {weekPnL >= 0 ? '+' : ''}${weekPnL.toFixed(0)}
                   </div>
-                  <div className="text-[10px] text-gray-500">{weekTrades} trades</div>
+                  <div className="text-xs text-gray-400">{weekTrades} trades</div>
                 </div>
               </div>
             );

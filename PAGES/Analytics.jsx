@@ -21,7 +21,8 @@ import {
   Bar,
   PieChart,
   Pie,
-  Cell
+  Cell,
+  Tooltip
 } from 'recharts';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import StatsCard from '../components/dashboard/StatsCard';
